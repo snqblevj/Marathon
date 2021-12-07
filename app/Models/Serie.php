@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Serie extends Model
 {
+    public $timestamps = false;
     use HasFactory;
 
     // A serie has many episodes
@@ -19,9 +20,6 @@ class Serie extends Model
         return $this->hasMany("App\Comment", "serie_id");
     }
 
-    // A serie has many genres
-    public function genres() {
-        return $this->belongsToMany("App\Genre");
-    }
+
 
 }

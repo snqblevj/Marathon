@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Episode extends Model
 {
+    public $timestamps = false;
     use HasFactory;
     // An episode is related to a serie
     public function serie() {

@@ -25,7 +25,7 @@ class CreateEpisodeTable extends Migration
             $table->integer('duree');
             $table->date('premiere')->nullable();
             $table->string('urlImage')->nullable();
-            $table->timestamps();
+            $table->string('url');
         });
 
     }

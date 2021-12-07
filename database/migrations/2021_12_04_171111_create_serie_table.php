@@ -24,7 +24,7 @@ class CreateSerieTable extends Migration
             $table->string('urlImage');
             $table->text('avis')->nullable();
             $table->text('urlAvis')->nullable();
-            $table->timestamps();
+            $table->string("genre")->nullable();
         });
 
 
