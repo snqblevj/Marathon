@@ -22,7 +22,6 @@ class CreateUsersTable extends Migration
             $table->boolean('administrateur');
             $table->string('avatar');
             $table->rememberToken();
-            $table->timestamps();
         });
     }
 
