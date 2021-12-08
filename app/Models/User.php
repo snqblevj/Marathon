@@ -41,4 +41,14 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    function comments() {
+        return $this-> hasMany(Comment::class);
+    }
+
+    function seen() {
+        return $this->belongsToMany(Episode::class, 'seen')
+            ->as('when')
+            ->withPivot('date_seen');
+    }
 }

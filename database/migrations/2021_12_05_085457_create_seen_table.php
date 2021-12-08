@@ -20,7 +20,8 @@ class CreateSeenTable extends Migration
             $table->bigInteger('episode_id')->unsigned();
             $table->foreign('episode_id')->references('id')->on('episodes')
                 ->onDelete('cascade');
-            $table->timestamps();
+            $table->dateTime('date_seen');
+//            $table->timestamps();
         });
     }
 

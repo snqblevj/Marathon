@@ -5,16 +5,24 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Comment extends Model
-{
+class Comment extends Model {
     use HasFactory;
+
+    protected $fillable = [
+        "id",
+        "content",
+        "note",
+        "validated",
+        "user_id",
+        "serie_id",];
+
     // A comment is written by an user
     public function utilisateur() {
-        return $this->belongsTo("App\User", "user_id");
+        return $this->belongsTo(User::class, 'user_id');
     }
 
     // A comment is dedicated to a serie
     public function serie() {
-        return $this->belongsTo("App\Serie", "serie_id");
+        return $this->belongsTo(Serie::class, 'serie_id');
     }
 }
