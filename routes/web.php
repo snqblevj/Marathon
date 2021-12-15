@@ -13,11 +13,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/',[\App\Http\Controllers\SerieController::class,'accueilSerie'])->name('serie.show');
+Route::get('/',[\App\Http\Controllers\SerieController::class,'accueilSerie'])->name('series.index');
 
 Route::get('/series',[\App\Http\Controllers\SerieController::class,'showSerie'])->name('series.show');
 
-Route::get('/series/{id}',[\App\Http\Controllers\SerieController::class,'showIdSerie'])->name('serie.show');
+Route::get('/series/{id}',[\App\Http\Controllers\SerieController::class,'showIdSerie'])->name('serie.show')->whereNumber(('id'));
+
+Route::get('/series/seen/{id}/{series}',[\App\Http\Controllers\SerieController::class,'addSeen'])->name('episode.seen')->middleware('auth');
+
+Route::get('series/{genre}',[\App\Http\Controllers\SerieController::class,'showGenreSerie'])->name('genre.show');
 
 
 
