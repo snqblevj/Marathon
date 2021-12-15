@@ -22,10 +22,14 @@
         @guest
             <li><a href="{{ route('login') }}">Login</a></li>
             <li><a href="{{ route('register') }}">Register</a></li>
+            <li><a href="{{route('series.show')}}">Liste des séries</a></li>
+
+
         @else
             <li> Bonjour {{ Auth::user()->name }}</li>
             @if (Auth::user())
                 <li><a href="#">Des liens spécifiques pour utilisateurs connectés..</a></li>
+                <li><a href="{{route('series.show')}}">Liste des séries</a></li>
             @endif
             <li><a href="{{ route('logout') }}"
                    onclick="event.preventDefault();

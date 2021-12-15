@@ -13,8 +13,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/',[\App\Http\Controllers\SerieController::class,'accueilSerie'])->name('serie.show');
+
+Route::get('/series',[\App\Http\Controllers\SerieController::class,'showSerie'])->name('series.show');
+
+Route::get('/series/{id}',[\App\Http\Controllers\SerieController::class,'showIdSerie'])->name('serie.show');
+
+
+
 
 //Route::post("/login", );
