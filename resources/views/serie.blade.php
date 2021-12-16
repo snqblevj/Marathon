@@ -11,11 +11,11 @@
         @endif
     @endforeach
     @if(Auth::user())
-        <form action="store" method="POST">
-            <input type="text" value="">
-            <button type="submit" value="Envoyer"><a href="#">ENVOYER</a></button>
+        <form action="{{route('comment.add',['id'=>$serie->id])}}" method="POST">
+            @csrf
+            <textarea name="comment" id="comment" cols="30" rows="10"></textarea>
+            <button type="submit"></button>
         </form>
-
     @endif
 
 @endsection

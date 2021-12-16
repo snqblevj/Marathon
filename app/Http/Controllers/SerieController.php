@@ -62,19 +62,24 @@ class SerieController extends Controller
         return redirect()->route('serie.show',['id'=>$serie_id]);
     }
 
-    public function ajoutComment($id_serie){
+    public function store(Request $request,$serie_id){
         $user = Auth::user();
         $table = DB::table('comments');
         $data = array(
             array(
-                'content'=>0,
+                'content'=>$request->input('comment'),
                 'note'=>0,
                 'validated'=>0,
                 'user_id'=>$user->id,
-                'serie_id'=>$id_serie,
-                'created_at'=>now()
+                'serie_id'=>$serie_id,
+                'created_at'=>now(),
+                'updated_at'=>now()
             )
         );
+
         $table->insert($data);
+
+        return redirect()->route('serie.show',['id'=>$serie_id]);
+
     }
 }
