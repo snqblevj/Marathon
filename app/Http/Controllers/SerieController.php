@@ -38,9 +38,13 @@ class SerieController extends Controller
 
     public function accueilSerie(){
         $series = Serie::orderBy('note','DESC')->get();
+        $series_recentes = Serie::orderBy('premiere','DESC')->get();
+
+
 
         return view('welcome',[
-            'serie'=>$series
+            'serie'=>$series,
+            'series_recentes'=>$series_recentes,
             ]);
     }
 
@@ -56,5 +60,21 @@ class SerieController extends Controller
         );
         $table->insert($data);
         return redirect()->route('serie.show',['id'=>$serie_id]);
+    }
+
+    public function ajoutComment($id_serie){
+        $user = Auth::user();
+        $table = DB::table('comments');
+        $data = array(
+            array(
+                'content'=>0,
+                'note'=>0,
+                'validated'=>0,
+                'user_id'=>$user->id,
+                'serie_id'=>$id_serie,
+                'created_at'=>now()
+            )
+        );
+        $table->insert($data);
     }
 }

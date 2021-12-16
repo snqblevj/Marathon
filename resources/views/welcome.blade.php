@@ -9,4 +9,7 @@
         <h2>{{$serie[$i]->nom}}</h2>
     @endfor
 
+    @for($i=0; $i < 5; $i++)
+        <h2>{{$series_recentes[$i]->nom}}</h2>
+    @endfor
 @endsection

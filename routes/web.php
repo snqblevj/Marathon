@@ -23,6 +23,7 @@ Route::get('/series/seen/{id}/{series}',[\App\Http\Controllers\SerieController::
 
 Route::get('series/{genre}',[\App\Http\Controllers\SerieController::class,'showGenreSerie'])->name('genre.show');
 
+Route::post('/series/comment/{id_serie}',[\App\Http\Controllers\SerieController::class,'ajoutComment'])->name('comment.add');
 
 
 
