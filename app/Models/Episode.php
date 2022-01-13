@@ -21,6 +21,7 @@ class Episode extends Model {
         return $this->belongsTo(Serie::class, "serie_id");
     }
 
+
     function seen() {
         return $this->belongsToMany(User::class, 'seen')
             ->as('when')
